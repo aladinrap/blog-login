@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>   
+      <%- include('navbar', {user: post.user}); %>
+      <div class="card" style="width: 100%;">
+        <div class="card-body">
+            <% if(post != "") {%>
+                <h1><%= post.title %></h1>
+                <h3><%= post.user.email %> | ID: <%= post.user.id %> </h3>
+                <p><%- post.content %></p>
+            <%}else{%>
+                <h1>Post not found</h1>
+            <%}%>
+                <a href="/">Go back home</a>
+            </div>
+      </div>
+
+    </body>
+</html>

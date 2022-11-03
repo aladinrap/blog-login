@@ -14,11 +14,11 @@ form.addEventListener("submit", () => {
         if(data.status == "error") {
             succes.style.display = "none"
             error.style.display= "block"
-            error.innerText = data.error
+            error.innerText = data.message
         } else {
             error.style.display = "none"
             succes.style.display= "block"
-            succes.innerText = data.succes
+            succes.innerText = data.message
             }
         })
 })
