@@ -10,12 +10,10 @@
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
 
-
           <!--LOGGED IN-->
-          <% if(user=="ok") {%>
+          <% if(status=="ok") {%>
           <li class="nav-item"> <a class="nav-link" href="/profile">Profile</a></li>
           <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
-          
           <!--LOGGED OUT-->
           <%}else{%>
           <li class="nav-item"> <a class="nav-link" href="/register">Register</a></li>

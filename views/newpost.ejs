@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New post</title>
+      <!-- CSS only -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+</head>
+<body>
+    <%- include('navbar', {user: user}); %>
+    <form onsubmit="return false;" id="form">
+    <div class="newpost">
+        <input type="hidden" id="userid" value=" <%= user.id %>">
+        <h4 style=" margin: 1rem 5rem 0rem 5rem;">Introdu titlul articolului:</h4>
+        <input type="text" id="title" class="form-control" style=" margin: 1rem 5rem 0rem 5rem;  width:30%;" id="title" autocomplete="off" required>
+        <h4 style=" margin: 1rem 5rem 0rem 5rem;">Introdu continutul articolului:</h4>
+        <input type="text" id="content" class="form-control" style=" margin: 1rem 5rem 0rem 5rem; height: 150px; width:30%;" id="content" autocomplete="off" required>
+        <button type="submit" class="btn btn-primary" style=" margin: 1rem 5rem 0rem 5rem;" id="newPostBtn">New POST!</button>
+    </div>
+    <div class="alert alert-success" role="alert" id="succes" style="display: none;"></div>
+    <div class="alert alert-danger" role="alert" id="error" style="display: none;"> </div>
+    </form>
+    <script src="js/newpost.js"></script>
+</body>
+</html>

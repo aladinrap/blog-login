@@ -1,4 +1,5 @@
 const db = require("../routes/db-config");
+const e = require("express");
 
 const getPost = async(req, res) => {
 
@@ -15,14 +16,12 @@ const getPost = async(req, res) => {
         db.query('SELECT * FROM users WHERE id = ?', [postResult[0].user_id], async(Err, userResult) => { //Search user with entered email
             if(Err) throw Err;
             if(!postResult.length) return res.render("posts.ejs", {post: ""});
-
             let post = {
                 title: postResult[0].title,
                 user: userResult[0],
-                content: postResult[0].content,
+                content: postResult[0].content
             }
-
-            return res.render("posts.ejs", {post: post});
+            return res.render("posts.ejs", {status: "ok", post: post});
         })
     });
 

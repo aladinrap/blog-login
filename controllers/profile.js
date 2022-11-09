@@ -18,4 +18,4 @@ const getProfile = (req, res) => {
     }
 }
 
-module.exports = getProfile
+module.exports = getProfile;

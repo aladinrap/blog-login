@@ -1,16 +1,20 @@
 form.addEventListener("submit", () => {
-    const register = {
-        email: email.value,
-        password: password.value
+    console.log("newpost button clicked");
+    const userid = document.getElementById("userid");
+    const newpost = {
+        userid: userid.value,
+        title: title.value,
+        content: content.value
     }
-    fetch("/api/register", {
+    fetch("/api/newpost", {
         method: "POST",
-        body: JSON.stringify(register),
+        body: JSON.stringify(newpost),
         headers: {
             "Content-Type": "application/json"
         }
-    }).then(res => res.json())
-    .then(data => {
+    }).then(async res => {
+        console.log(res);
+        data = await res.json();
         if(data.status == "error") {
             succes.style.display = "none"
             error.style.display= "block"
@@ -19,10 +23,10 @@ form.addEventListener("submit", () => {
             error.style.display = "none"
             succes.style.display= "block"
             succes.innerText = data.message
-            }
 
             setTimeout(function(){
-                location.href = "/login"
-            },1000);    
+                location.href = "/profile"
+            },1000); 
+            }
         })
 })
